@@ -9,10 +9,15 @@ const servidor = express();
 
 //criando as rotas do servidor 
 servidor.get('/', (req, res) => {
-        console.log('Alguém fez uma requisição.. uau arigato');
-        res.send('Está aí o que você queria.. nn me abandone me teste again later :)')
-    })
-    //por o servidor para 'ouvir' as requisiçoes
+    console.log('Alguém fez uma requisição.. uau arigato');
+    res.send('Está aí o que você queria.. nn me abandone me teste again later :)')
+})
+servidor.get('/generos', (req, res) => {
+    console.log('servidor de generos funcionando..');
+    res.send('ola aqui ainda nn tem nenhum gêneros hehe');
+})
+
+//'/filme/posicao' => pega o filme o pela posição que o cliente for solicitar ao pesquisar.
 servidor.get('/filme/:posicao', (req, res) => {
     console.log('esta sendo usado')
         //capturei a posiça~o do filme desejado
@@ -26,11 +31,31 @@ servidor.get('/filme/:posicao', (req, res) => {
 })
 
 
-servidor.get('/generos', (req, res) => {
-    console.log('servidor de generos funcionando..');
-    res.send('ola aqui ainda nn tem nenhum gêneros hehe');
+servidor.get('/busca/:trecho', (req, res) => {
+    console.log('usando o servidor busca..');
+
+    // 1: Salvar o trecho buscado na variável 'trecho';
+    let trecho = req.params.trecho;
+
+    // 2: Importar o conteúdo de filmes.json para uma constante 'filmes'
+    const filmes = require('./database/filmes.json');
+
+    // 3: Filtrar do array filmes, somente os filmes que possuam o trecho no titulo. => (lembrem da função filmes.filter)
+    let filtro = filmes.filter((elem, i, arr) => arr.indexOf(elem) === i)
+
+    //let filtro = filmes.filter((titulo, trecho, filmes) => filmes.indexOf(titulo) === trecho)
+
+    // 4: Enviar para o cliente(usando res.send) o resultado da filtragem.
+    res.send(filtro.filmes)
+        // res.send(req.params.trecho);
 })
 servidor.listen(3000);
+//como colocar a sinopse de todos os filmes?
+
+
+
+
+
 
 
 
