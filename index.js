@@ -30,7 +30,7 @@ servidor.get('/filme/:posicao', (req, res) => {
     res.send(filmes[posicao])
 })
 
-
+//'/busca/:trecho' => irá permitir que o cliente busque o título do filme pela barra de pesquisa e ter resultados.b
 servidor.get('/busca/:trecho', (req, res) => {
     console.log('usando o servidor busca..');
 
@@ -38,20 +38,32 @@ servidor.get('/busca/:trecho', (req, res) => {
     let trecho = req.params.trecho;
 
     // 2: Importar o conteúdo de filmes.json para uma constante 'filmes'
+
     const filmes = require('./database/filmes.json');
 
     // 3: Filtrar do array filmes, somente os filmes que possuam o trecho no titulo. => (lembrem da função filmes.filter)
-    let filtro = filmes.filter((elem, i, arr) => arr.indexOf(elem) === i)
 
-    //let filtro = filmes.filter((titulo, trecho, filmes) => filmes.indexOf(titulo) === trecho)
+    const filmesTitulo = filmes.filter(function(valorDaBusca) {
+        return valorDaBusca.titulo.includes(trecho);
+    })
+
+    //nesta constante eu fiz com que o cliente que digita-se qualquer coisa na barra de pesquisa retornasse os nomes dos titulos conrrespondentes. e como?
+    //na contaste eu fiz com que recebe-se todos filmes só que ultilizando o filter com uma função recebendo como parametro um nome que vai ser por onde a funçao vai funcionar, e fiz com q retorna-se o parametro+todos os títulos dos filmes mas apenas as letras que o cliente for digitar na barra de pesquisa
 
     // 4: Enviar para o cliente(usando res.send) o resultado da filtragem.
-    res.send(filtro.filmes)
+    res.send(filmesTitulo)
         // res.send(req.params.trecho);
 })
 servidor.listen(3000);
 //como colocar a sinopse de todos os filmes?
 
+// function paraBuscarTitulo(filme) {
+//     if (filme.titulo.includes(trecho)) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
 
 
 
