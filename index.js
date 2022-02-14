@@ -10,7 +10,6 @@ servidor.use('/', FilmesRouter);
 // o '/' identifica qual o roteador vai ser usado no arquivo FilmesRouter
 servidor.listen(3000);
 
-//como colocar a sinopse de todos os filmes?
 
 // function paraBuscarTitulo(filme) {
 //     if (filme.titulo.includes(trecho)) {
