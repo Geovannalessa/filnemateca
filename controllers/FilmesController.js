@@ -3,6 +3,11 @@ const FilmesController = {
         console.log('pergunta.. uau arigato');
         res.send('resposta.. nn me abandone me teste again later :)');
     },
+    listarFilmes: (req, res) => {
+        console.log('listando filmes..');
+        const filmes = require('../database/filmes.json');
+        res.send(filmes);
+    },
     buscarPorTrecho: (req, res) => {
         console.log('usando o servidor busca..');
 
@@ -34,15 +39,17 @@ const FilmesController = {
         res.send(filmesGeneros);
     },
     buscarPelaPosicao: (req, res) => {
-        console.log('esta sendo usado')
-            //capturei a posiça~o do filme desejado
+        console.log('esta sendo usado posição de um filme (ºoº)')
+            //capturei a posição do filme desejado
         let posicao = req.params.posicao;
 
         //carregar o array de filmes 
         const filmes = require('../database/filmes.json');
 
-        //enviar para o cliente o filme da posicao desejada
-        res.send(filmes[posicao])
+        //enviar  
+        let filme = filmes[posicao];
+        res.render('filme.ejs', { filme });
+        //res.render vai enviar a view, usando primeiro o arquivo que ira enviar. e passa para a pos
     },
     buscarPorId: (req, res) => {
         console.log('servidor de busca por id está funcionando.....');

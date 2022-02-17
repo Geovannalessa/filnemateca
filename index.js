@@ -1,13 +1,24 @@
 //importação da biblioteca express
 const express = require('express');
+const path = require('path');
 //Importando os roteadores
-const FilmesRouter = require('./routers/FilmesRouter')
+const FilmesRouter = require('./routers/FilmesRouter');
 
 //criando um servidor
 const servidor = express();
+
+//Configuração do Template Engine
+servidor.set('view engine', 'ejs');
+// o engine que voce ira usar é o ejs
+
+//configurando a parta public como contedora dos arquivos estáticos *precisa ser adicionada antes do filmes router
+servidor.use(express.static(path.join(__dirname, 'public')));
+
+
 //usando o FilmesRouter
 servidor.use('/', FilmesRouter);
 // o '/' identifica qual o roteador vai ser usado no arquivo FilmesRouter
+
 servidor.listen(3000);
 
 

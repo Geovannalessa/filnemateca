@@ -6,7 +6,10 @@ const FilmesController = require('../controllers/FilmesController')
 const router = express.Router();
 //existe router no express por isso foi chamado com . .
 //criando as rotas do servidor 
+
+//criação de rotas
 router.get('/', FilmesController.index);
+router.get('/', FilmesController.listarFilmes);
 
 router.get('/buscargeneros/:trechoGeneros', FilmesController.buscarPorGenero);
 
