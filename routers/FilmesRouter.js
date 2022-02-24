@@ -13,7 +13,7 @@ router.get('/', FilmesController.listarFilmes);
 
 router.get('/buscargeneros/:trechoGeneros', FilmesController.buscarPorGenero);
 
-router.get('/filme/:posicao', FilmesController.buscarPelaPosicao);
+router.get('/filmes/:posicao', FilmesController.buscarPelaPosicao);
 
 router.get('/buscar/:trecho', FilmesController.buscarPorTrecho)
 

@@ -1,7 +1,8 @@
 const FilmesController = {
     index: (req, res) => {
-        console.log('pergunta.. uau arigato');
-        res.send('resposta.. nn me abandone me teste again later :)');
+        console.log('usando o index (^~^)')
+        const filmes = require("../database/filmes.json");
+        res.render('index.ejs', { filmes });
     },
     listarFilmes: (req, res) => {
         console.log('listando filmes..');
@@ -62,8 +63,3 @@ const FilmesController = {
     },
 }
 module.exports = FilmesController;
-// função listarFilmes
-// função pelaPosição
-// função buscarPorTrecho
-// função buscarPorId 
-// função buscarPorGenero
