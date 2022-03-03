@@ -47,7 +47,8 @@ header .container {
     align-items: center;
 }
 
-header #logo {
+header #logo>a {
+    text-decoration: none;
     font-family: Festive, cursive;
     font-size: 3rem;
     color: #FFF;

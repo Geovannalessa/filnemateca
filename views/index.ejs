@@ -16,33 +16,26 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div id="logo">Filnemateca</div>
-            <form>
-                <input type="search" name="busca" id="busca">
-            </form>
-        </div>
-    </header>
-    <main class="container">
-        <% 
+    <%- include("parts/header.ejs") %>
+        <main class="container">
+            <% 
         for(let i=0; i< filmes.length; i++){
             let f =filmes[i];
         %>
-            <article>
-                <img src="/img/<%= f.cartaz %>" alt="<%= f.titulo %>">
-                <a href="/filmes/<%= i %>">
-                    <span class="titulo"><%= f.titulo %></span>
-                    <span class="censura">Censura: <%= f.censura ==0 ? 'Livre' : f.censura + " anos"%> </span>
-                </a>
-            </article>
-            <% } %>
+                <article>
+                    <img src="/img/<%= f.cartaz %>" alt="<%= f.titulo %>">
+                    <a href="/filmes/<%= i %>">
+                        <span class="titulo"><%= f.titulo %></span>
+                        <span class="censura">Censura: <%= f.censura ==0 ? 'Livre' : f.censura + " anos"%> </span>
+                    </a>
+                </article>
+                <% } %>
 
 
-    </main>
-    <footer>
+        </main>
+        <footer>
 
-    </footer>
+        </footer>
 </body>
 
 </html>

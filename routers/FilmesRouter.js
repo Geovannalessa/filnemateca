@@ -15,7 +15,7 @@ router.get('/buscargeneros/:trechoGeneros', FilmesController.buscarPorGenero);
 
 router.get('/filmes/:posicao', FilmesController.buscarPelaPosicao);
 
-router.get('/buscar/:trecho', FilmesController.buscarPorTrecho)
+router.get('/buscar', FilmesController.buscarPorTrecho)
 
 router.get('/buscarid/:trechoId', FilmesController.buscarPorId);
 

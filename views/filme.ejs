@@ -20,27 +20,20 @@
     </head>
 
     <body>
-        <header>
-            <div class="container">
-                <div id="logo">Filnemateca</div>
-                <form>
-                    <input type="search" name="busca" id="busca">
-                </form>
-            </div>
-        </header>
-        <main class="container">
-            <img src="/img/<%=filme.cartaz%>" alt="<%=filme.titulo%>">
-            <aside>
-                <span class="titulo"><%=filme.titulo%></span>
-                <span class="censura">Censura: <%=filme.censura==0 ? 'Livre' : filme.censura%></span>
-                <span class="generos"><%=filme.generos %></span>
-                <span class="sinopse"><%=filme.sinopse %></span>
-                <span class="trailer"><%=filme.trailer%></span>
+        <%- include("parts/header.ejs") %>
+            <main class="container">
+                <img src="/img/<%=filme.cartaz%>" alt="<%=filme.titulo%>">
+                <aside>
+                    <span class="titulo"><%=filme.titulo%></span>
+                    <span class="censura">Censura: <%=filme.censura==0 ? 'Livre' : filme.censura%></span>
+                    <span class="generos"><%=filme.generos %></span>
+                    <span class="sinopse"><%=filme.sinopse %></span>
+                    <span class="trailer"><%=filme.trailer%></span>
 
-            </aside>
-        </main>
-        <!-- https://github.com/sergiomoura/fake_instagram/blob/master/app.js  -->
-        <!-- <img src="<%=filme.cartaz%>" alt="imagem do filme"> <br> Título:
+                </aside>
+            </main>
+            <!-- https://github.com/sergiomoura/fake_instagram/blob/master/app.js  -->
+            <!-- <img src="<%=filme.cartaz%>" alt="imagem do filme"> <br> Título:
     <%=filme.titulo %>;<br> Genêro:
         <%=filme.generos %>; <br> Sinopse:
             <%=filme.sinopse %> <br> id:
