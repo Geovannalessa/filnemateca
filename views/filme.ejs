@@ -27,17 +27,12 @@
                     <span class="titulo"><%=filme.titulo%></span>
                     <span class="censura">Censura: <%=filme.censura==0 ? 'Livre' : filme.censura%></span>
                     <span class="generos"><%=filme.generos %></span>
-                    <span class="sinopse"><%=filme.sinopse %></span>
-                    <span class="trailer"><%=filme.trailer%></span>
+                    <span class="sinopse"><%=filme.sinopse %></span> <br>
+                    <span class="trailer"> <a class= link href="<%=filme.trailer%>"><%=filme.trailer%></a> </span>
 
                 </aside>
             </main>
-            <!-- https://github.com/sergiomoura/fake_instagram/blob/master/app.js  -->
-            <!-- <img src="<%=filme.cartaz%>" alt="imagem do filme"> <br> Título:
-    <%=filme.titulo %>;<br> Genêro:
-        <%=filme.generos %>; <br> Sinopse:
-            <%=filme.sinopse %> <br> id:
-                <%=filme.id%>; -->
+
     </body>
 
 </html>

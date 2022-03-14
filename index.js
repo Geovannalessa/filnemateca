@@ -1,6 +1,7 @@
 //importação da biblioteca express
 const express = require('express');
 const path = require('path');
+const middlewareGlobal = require('./middlewares/middlewareGlobal');
 //Importando os roteadores
 const FilmesRouter = require('./routers/FilmesRouter');
 
@@ -14,6 +15,7 @@ servidor.set('view engine', 'ejs');
 //configurando a parta public como contedora dos arquivos estáticos *precisa ser adicionada antes do filmes router
 servidor.use(express.static(path.join(__dirname, 'public')));
 
+servidor.use(middlewareGlobal);
 
 //usando o FilmesRouter
 servidor.use('/', FilmesRouter);

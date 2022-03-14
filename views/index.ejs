@@ -24,9 +24,9 @@
         %>
                 <article>
                     <img src="/img/<%= f.cartaz %>" alt="<%= f.titulo %>">
-                    <a href="/filmes/<%= i %>">
+                    <a href="/filmes/<%= f.id %>">
                         <span class="titulo"><%= f.titulo %></span>
-                        <span class="censura">Censura: <%= f.censura ==0 ? 'Livre' : f.censura + " anos"%> </span>
+                        <span class="censura">Censura: <%= f.censura == 0 ? 'Livre' : f.censura + " anos"%> </span>
                     </a>
                 </article>
                 <% } %>

@@ -10,11 +10,12 @@ html {
 }
 
 body {
+    color: white;
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: Roboto, sans-serif;
-    background-color: #F0F0F0;
+    background-color: #000000f1;
 }
 
 input[type='search'],
@@ -29,6 +30,16 @@ input[type='text'] {
 input[type='search']:focus,
 input[type='text']:focus {
     outline: 2px solid var(--cor-destaque);
+}
+
+.link {
+    color: white;
+    text-decoration: underline #802be2c2;
+    ;
+}
+
+.link:hover {
+    color: #8a2be2;
 }
 
 .container {

@@ -1,5 +1,9 @@
 // Importar a biblioteca express
 const express = require('express');
+
+//Importar o Middleware;
+const middlewareGuardaBusca = require('../middlewares/middlewareGuardaBusca');
+
 // Importando o filmes controllers;
 const FilmesController = require('../controllers/FilmesController')
     // Criar o roterador com express.Router
@@ -13,9 +17,9 @@ router.get('/', FilmesController.listarFilmes);
 
 router.get('/buscargeneros/:trechoGeneros', FilmesController.buscarPorGenero);
 
-router.get('/filmes/:posicao', FilmesController.buscarPelaPosicao);
+router.get('/filmes/:id', FilmesController.buscarPorId);
 
-router.get('/buscar', FilmesController.buscarPorTrecho)
+router.get('/buscar', middlewareGuardaBusca, FilmesController.buscarPorTrecho)
 
 router.get('/buscarid/:trechoId', FilmesController.buscarPorId);
 

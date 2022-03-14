@@ -29,8 +29,6 @@ const FilmesController = {
 
         // 4: Enviar para o cliente(usando res.send) o resultado da filtragem.
         res.render('index.ejs', { filmes: filmesTitulo })
-
-        // res.send(req.params.trecho);
     },
     buscarPorGenero: (req, res) => {
         console.log('servidor gêneros está sendo usado! ;)');
@@ -40,26 +38,25 @@ const FilmesController = {
         res.send(filmesGeneros);
     },
     buscarPelaPosicao: (req, res) => {
-        console.log('esta sendo usado posição de um filme (ºoº)')
-            //capturei a posição do filme desejado
-        let posicao = req.params.posicao;
-
-        //carregar o array de filmes 
+        console.log('servidor de busca por posição está funcionando B)');
+        let posicao = req.params.trechoId;
         const filmes = require('../database/filmes.json');
-
-        //enviar  
         let filme = filmes[posicao];
         res.render('filme.ejs', { filme });
-        //res.render vai enviar a view, usando primeiro o arquivo que ira enviar. e passa para a pos
     },
     buscarPorId: (req, res) => {
         console.log('servidor de busca por id está funcionando.....');
-        let trechoId = req.params.trechoId;
+        let id = req.params.id;
         const filmes = require('../database/filmes.json');
-        const filmesId = filmes.filter(function(idFilme) {
-            return idFilme.id.includes(trechoId)
-        })
-        res.send(filmesId)
-    },
+        let filtradora = filme => {
+            if (filme.id == id) {
+                return true;
+            } else {
+                return false
+            }
+        }
+        const filme = filmes.find(filtradora);
+        res.render('filme.ejs', { filme });
+    }
 }
 module.exports = FilmesController;
