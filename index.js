@@ -4,7 +4,7 @@ const path = require('path');
 const middlewareGlobal = require('./middlewares/middlewareGlobal');
 //Importando os roteadores
 const FilmesRouter = require('./routers/FilmesRouter');
-
+const AdmRouter = require("./routers/AdmRouter");
 //criando um servidor
 const servidor = express();
 
@@ -19,6 +19,7 @@ servidor.use(middlewareGlobal);
 
 //usando o FilmesRouter
 servidor.use('/', FilmesRouter);
+servidor.use('/', AdmRouter);
 // o '/' identifica qual o roteador vai ser usado no arquivo FilmesRouter
 
 servidor.listen(3000);
