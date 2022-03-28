@@ -5,7 +5,7 @@ const AdmController = require('../controllers/AdmController');
 //Criando o roteador:
 const router = express.Router();
 //Criando a rota:
-router.get('/login', AdmController.login);
-router.post('/login', (req, res) => { res.send('olá') })
-    //Exportando o roteador:
+router.get('/login', AdmController.mostralogin);
+router.post('/login', AdmController.login);
+//Exportando o roteador:
 module.exports = router;
