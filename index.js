@@ -15,6 +15,9 @@ servidor.set('view engine', 'ejs');
 //configurando a parta public como contedora dos arquivos estáticos *precisa ser adicionada antes do filmes router
 servidor.use(express.static(path.join(__dirname, 'public')));
 
+// põe as insformações do formulario req.body
+servidor.use(express.urlencoded({ extended: false }));
+
 servidor.use(middlewareGlobal);
 
 //usando o FilmesRouter
