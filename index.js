@@ -1,6 +1,7 @@
 //importação da biblioteca express
 const express = require('express');
 const path = require('path');
+const session = require('express-session')
 const middlewareGlobal = require('./middlewares/middlewareGlobal');
 //Importando os roteadores
 const FilmesRouter = require('./routers/FilmesRouter');
@@ -15,6 +16,8 @@ servidor.set('view engine', 'ejs');
 //configurando a parta public como contedora dos arquivos estáticos *precisa ser adicionada antes do filmes router
 servidor.use(express.static(path.join(__dirname, 'public')));
 
+servidor.use(session({ secret: "SEGREDO", saveUninitialized: false, resave: true }));
+
 // põe as insformações do formulario req.body
 servidor.use(express.urlencoded({ extended: false }));
 
@@ -26,15 +29,6 @@ servidor.use('/', AdmRouter);
 // o '/' identifica qual o roteador vai ser usado no arquivo FilmesRouter
 
 servidor.listen(3000);
-
-
-// function paraBuscarTitulo(filme) {
-//     if (filme.titulo.includes(trecho)) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
 
 
 

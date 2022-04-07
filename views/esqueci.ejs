@@ -10,22 +10,16 @@
 </head>
 
 <body>
-    <form action="/login" method="post">
+    <form action="/esqueci" method="post">
         <label>
-            <% if(erro){ %>
-                <div>Usuário não encontrado</div>
-            <% } %>
-            <h1>Login</h1>
+            <h1>Esqueci a senha</h1>
             <span>Email:</span>
             <input type="text" name="email" id="email">
         </label>
-        <label>
-            <span>Senha:</span>
-            <input type="password" name="senha" id="senha">
-        </label>
+
         <div class="entrar">
-            <a href="/esqueci">Esqueceu a senha?</a>
-            <button type="submit">Entrar</button>
+            <a href="/login">Ir para tela de login</a>
+            <button type="submit">Lembrar</button>
         </div>
     </form>
 </body>
